@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# SQLite database files & WAL journals
+data/*.db
+data/*.db-wal
+data/*.db-shm
+
+# User uploaded customer photos (keep directory structure)
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Logs and environment
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
