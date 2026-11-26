@@ -1,27 +1,38 @@
 /* ============================================================
-   LAKSHYA MENS PARLOUR - LUXURY MEN'S SALON STYLING
+   LAKSHYA MENS PARLOUR - ULTRA-LUXURY MEN'S SALON STYLING
    Rajendra Nagar, Nagpur
-   Palette: Deep Charcoal/Obsidian with Rich Amber Gold Accents
+   Aesthetic: Bespoke Luxury Barbershop & Grooming Lounge
+   Palette: Deep Obsidian (#07090E), Warm Charcoal (#0F141F), 
+            Brushed Metallic Gold (#D4AF37, #F5D061, #C59B27)
    ============================================================ */
 
 :root {
-  --bg-dark: #090c10;
-  --bg-card: #121721;
-  --bg-card-hover: #18202e;
-  --bg-card-elevated: #1e2638;
+  --bg-dark: #07090e;
+  --bg-surface: #0c1017;
+  --bg-card: #111724;
+  --bg-card-hover: #161e30;
+  --bg-card-elevated: #1a2336;
+  
   --gold-primary: #d4af37;
+  --gold-light: #f5d061;
+  --gold-dark: #aa7c11;
   --gold-bright: #f59e0b;
-  --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  --gold-glow: rgba(245, 158, 11, 0.28);
-  --gold-subtle: rgba(212, 175, 55, 0.12);
-  --border-gold: rgba(245, 158, 11, 0.22);
-  --border-subtle: rgba(255, 255, 255, 0.08);
+  --gold-gradient: linear-gradient(135deg, #f5d061 0%, #d4af37 50%, #aa7c11 100%);
+  --gold-gradient-subtle: linear-gradient(135deg, rgba(245, 208, 97, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+  --gold-glow: rgba(212, 175, 55, 0.25);
+  --gold-glow-strong: rgba(245, 208, 97, 0.45);
+  
+  --border-gold: rgba(212, 175, 55, 0.28);
+  --border-gold-subtle: rgba(212, 175, 55, 0.14);
+  --border-glass: rgba(255, 255, 255, 0.07);
+  
   --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-gold: #fbbf24;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-gold: #f5d061;
+  
   --whatsapp-green: #25d366;
-  --danger-red: #ef4444;
-  --success-green: #10b981;
+  --success-emerald: #10b981;
 }
 
 * {
@@ -29,246 +40,267 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #090c10;
+  background: #07090e;
 }
 ::-webkit-scrollbar-thumb {
-  background: #273042;
+  background: #1e2638;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4af37;
+  background: var(--gold-primary);
 }
 
-/* Glassmorphism Card */
-.glass-panel {
-  background: rgba(18, 23, 33, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-gold);
+/* Typography Helpers */
+.font-serif-luxury {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  letter-spacing: 0.04em;
+}
+
+.font-display {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Metallic Gold Text */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #fff2cc 0%, #f5d061 30%, #d4af37 70%, #aa7c11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-text-shimmer {
+  background: linear-gradient(90deg, #d4af37 0%, #fff7d6 50%, #d4af37 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 4s infinite linear;
+}
+
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Luxury Glassmorphism */
+.glass-luxe {
+  background: rgba(15, 20, 31, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 1.25rem;
+}
+
+.glass-luxe-card {
+  background: linear-gradient(145deg, rgba(17, 23, 36, 0.9) 0%, rgba(12, 16, 26, 0.85) 100%);
+  border: 1px solid var(--border-glass);
   border-radius: 1rem;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.glass-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 0.875rem;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.glass-card:hover {
+.glass-luxe-card:hover {
   border-color: var(--border-gold);
-  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.4), 0 0 15px -3px var(--gold-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6), 0 0 20px -5px var(--gold-glow);
 }
 
-/* Luxury Gold Button */
-.btn-gold {
+/* Luxury Gold Buttons */
+.btn-gold-luxe {
   background: var(--gold-gradient);
-  color: #0b0e14;
-  font-weight: 700;
+  color: #080a0f;
+  font-weight: 800;
   border: none;
-  box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.39);
-  transition: all 0.2s ease;
-}
-.btn-gold:hover:not(:disabled) {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
-}
-.btn-gold:active:not(:disabled) {
-  transform: translateY(1px);
-}
-
-/* WhatsApp Button */
-.btn-whatsapp {
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-  color: #ffffff;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-  transition: all 0.2s ease;
-}
-.btn-whatsapp:hover {
-  filter: brightness(1.08);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
-}
-
-/* Pulsing Badge for NEW Bookings */
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
-    transform: scale(1.03);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
-    transform: scale(1);
-  }
-}
-.pulse-badge {
-  animation: pulseGlow 1.8s infinite;
-}
-
-@keyframes liveDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
-}
-.live-indicator {
-  animation: liveDot 1.4s ease-in-out infinite;
-}
-
-/* Stamp Card for Loyalty Rewards */
-.loyalty-stamp-card {
-  background: linear-gradient(145deg, #161b26 0%, #1e2638 100%);
-  border: 1px dashed var(--gold-bright);
-  border-radius: 1rem;
-  padding: 1.25rem;
+  box-shadow: 0 4px 18px 0 rgba(212, 175, 55, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
-.loyalty-stamp-card::before {
+.btn-gold-luxe::after {
   content: '';
   position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, transparent 70%);
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.6s ease;
+}
+.btn-gold-luxe:hover:not(:disabled)::after {
+  left: 100%;
+}
+.btn-gold-luxe:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
+.btn-gold-luxe:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-outline-gold {
+  background: rgba(212, 175, 55, 0.06);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.16);
+  border-color: var(--gold-light);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* WhatsApp Luxury Button */
+.btn-whatsapp-luxe {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  transition: all 0.2s ease;
+}
+.btn-whatsapp-luxe:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* Pulsing Ambient Dot */
+@keyframes ambientGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
+}
+.live-pulse-dot {
+  animation: ambientGlow 1.8s ease-in-out infinite;
+}
+
+/* VIP Titanium Membership Card */
+.titanium-vip-card {
+  background: linear-gradient(135deg, #1a2233 0%, #0d121c 50%, #171f2d 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px -5px rgba(212, 175, 55, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.titanium-vip-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(245, 208, 97, 0.25) 0%, transparent 70%);
   pointer-events: none;
 }
 
-.stamp-slot {
-  width: 44px;
-  height: 44px;
+/* Loyalty Stamp Slots */
+.vip-stamp-node {
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
-.stamp-slot.completed {
+.vip-stamp-node.completed {
   background: var(--gold-gradient);
-  color: #0b0e14;
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  color: #07090e;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.55);
 }
-.stamp-slot.pending {
-  background: rgba(255, 255, 255, 0.05);
+.vip-stamp-node.reward-free {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: #ffffff;
+  border: 1px solid rgba(236, 72, 153, 0.5);
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.45);
+}
+.vip-stamp-node.reward-half {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  color: #080a0f;
+  border: 1px solid rgba(245, 158, 11, 0.6);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.45);
+}
+.vip-stamp-node.upcoming {
+  background: rgba(255, 255, 255, 0.04);
   color: #64748b;
-  border: 1px dashed rgba(255, 255, 255, 0.2);
-}
-.stamp-slot.reward {
-  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-  color: #fff;
-  border: 1px solid rgba(236, 72, 153, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
 }
 
-/* Barber Pole Striped Accent */
-.barber-pole-accent {
-  height: 4px;
-  background: repeating-linear-gradient(
-    45deg,
-    #ef4444,
-    #ef4444 10px,
-    #ffffff 10px,
-    #ffffff 20px,
-    #3b82f6 20px,
-    #3b82f6 30px
-  );
-  width: 100%;
-}
-
-/* Time Slot Pill */
-.slot-pill {
+/* 30-min Slot Selector */
+.slot-pill-luxe {
   cursor: pointer;
   user-select: none;
-  transition: all 0.15s ease;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
-.slot-pill:hover:not(.slot-full):not(.slot-past):not(.slot-blocked) {
-  border-color: var(--gold-bright);
-  transform: translateY(-1px);
+.slot-pill-luxe:hover:not(.slot-full):not(.slot-past) {
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+  background: rgba(212, 175, 55, 0.1);
 }
-.slot-pill.slot-selected {
-  background: var(--gold-bright) !important;
-  color: #0b0e14 !important;
-  border-color: #fbbf24 !important;
-  font-weight: 700;
-  box-shadow: 0 0 12px rgba(245, 158, 11, 0.45);
+.slot-pill-luxe.slot-selected {
+  background: var(--gold-gradient) !important;
+  color: #080a0f !important;
+  border-color: #f5d061 !important;
+  font-weight: 800;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.5);
+  transform: scale(1.02);
 }
-.slot-pill.slot-full {
-  opacity: 0.45;
-  background: #11141a;
-  border-color: rgba(255, 255, 255, 0.05);
+.slot-pill-luxe.slot-full {
+  opacity: 0.35;
+  background: #0d1118;
+  border-color: rgba(255, 255, 255, 0.03);
   cursor: not-allowed;
 }
 
-/* Digital Salon Ticket / Pass */
-.booking-ticket {
-  background: radial-gradient(circle at 100% 50%, transparent 12px, #161c28 13px) no-repeat,
-              radial-gradient(circle at 0% 50%, transparent 12px, #161c28 13px) no-repeat;
-  background-size: 100% 100%;
-  border-top: 1px solid var(--border-gold);
-  border-bottom: 1px solid var(--border-gold);
+/* Service Category Filter Tab */
+.service-filter-tab {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.service-filter-tab.active {
+  background: var(--gold-gradient);
+  color: #080a0f;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
 }
 
-/* Modal Backdrop */
-.modal-overlay {
-  background: rgba(7, 10, 15, 0.85);
-  backdrop-filter: blur(8px);
-}
-
-/* Shimmer animation */
-@keyframes goldShimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-.shimmer-gold {
-  background: linear-gradient(90deg, #d4af37 0%, #fff3b0 50%, #d4af37 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: goldShimmer 3.5s infinite linear;
-}
-
-/* Bottom Nav Bar for Mobile */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 40;
-  background: rgba(14, 18, 27, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(245, 158, 11, 0.2);
-  padding-bottom: env(safe-area-inset-bottom);
+/* Modal Overlay */
+.modal-backdrop-luxe {
+  background: rgba(5, 7, 11, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 /* Toast Notification */
 #toast-container {
   position: fixed;
-  top: 1.25rem;
-  right: 1.25rem;
+  top: 1.5rem;
+  right: 1.5rem;
   z-index: 100;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
   pointer-events: none;
 }
 .toast-msg {
@@ -280,8 +312,15 @@ body {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@media (max-width: 640px) {
-  .app-container {
-    padding-bottom: 5.5rem;
-  }
+/* Subtle Barber Ribbon Strip */
+.barber-luxe-accent {
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #d4af37 20%, 
+    #f5d061 50%, 
+    #aa7c11 80%, 
+    transparent 100%
+  );
+  width: 100%;
 }
